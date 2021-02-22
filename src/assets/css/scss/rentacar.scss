@@ -1,0 +1,371 @@
+@import 'variables';
+@import 'mixins';
+@import 'bootstrap';
+// @import 'mCustomScrollbar';
+// @import 'slick';
+// @import 'fancybox';
+
+//	sass --watch rentacar.scss:../style.css --style compressed --sourcemap=none
+
+// @import url('https://fonts.googleapis.com/css?family=Open+Sans');
+// @import url('https://fonts.googleapis.com/css?family=Lato:300,400,700,900');
+// @import url('https://fonts.googleapis.com/css?family=Lato:300,400,700,900');
+// @import url('https://fonts.googleapis.com/css?family=Lato:300,400,600,700|Crete+Round:400italic');
+@import url('https://fonts.googleapis.com/css?family=Open+Sans:300,400|Montserrat:600');
+
+// body {
+// 	background: #FEF8F9;
+// }
+span, div, p, li, textarea, input, fieldset, button, td, button, .btn, address {
+	font-family: 'Open Sans', sans-serif;
+}
+strong, label, h1, h2, h3, h4, h5, h6, legend, caption, th {
+	// font-family: 'Montserrat', sans-serif;
+	font-family: 'Open Sans', sans-serif;
+}
+img {
+	max-width: 100%;
+}
+h2, h3 {
+	margin-top: 0;
+	font-weight: bold;
+	margin-bottom: 20px;
+	& strong {
+		color: $main;
+		font-weight: bold;
+	}
+}
+h3, .h3 {
+	line-height: 36px;
+}
+p {
+	font-size: 17px;
+	line-height: 26px;
+	color: $partialGrey;
+	letter-spacing: 0.5px;
+	&:empty {
+		display: none;
+	}
+}
+.clear {
+	clear: both;
+}
+.nopadding {
+	padding: 0;
+}
+.p-static {
+	position: static;
+}
+.p-relative {
+	position: relative;
+}
+.hideText {
+	font-size: 0px;
+	text-indent: -9999px;
+}
+.linkBlue {
+	color: $linkBlue !important;
+	cursor: pointer;
+	&:hover {
+		text-decoration: underline;
+	}
+}
+.btn{
+	@include transition(200ms);
+	&.btn-primary {
+		border-color: $main;
+		background-color: $main;
+		&:hover {
+			border-color: $main_d;
+			background-color: $main_d;
+		}
+	}
+}
+#siteWrapper {
+	width: 100%;
+	margin: 0 auto;
+	max-width: 1920px;
+	min-height: 500px;
+}
+header {
+	top: 0;
+	left: 0;
+	right: 0;
+	width: 100%;
+	z-index: 10;
+	margin: auto;
+	position: fixed;
+	max-width: 1920px;
+	@include transition(250ms);
+	background: rgba(0,0,0,0.3);
+	&.scrolled {
+		background: rgba(0,0,0,0.8);
+	}
+}
+.homeBanner {
+	width: 100%;
+	height: 100vh;
+	background: url('../img/hero.jpg') no-repeat center center;
+	background-size: cover;
+}
+.list {
+	margin: 0;
+	padding: 0;
+	list-style: none;
+	& > li {
+		font-size: 16px;
+		& a {
+			color: #FFF;
+			display: block;
+			padding: 8px 16px;
+			position: relative;
+			text-decoration: none;
+			@include transition(100ms);
+			&:hover {
+				color: $lightGray
+			}
+		}
+	}
+	&.nav-horizontal {
+		font-size: 0;
+		& > li {
+			display: inline-block;
+		}
+	}
+	&.nav-vertical {
+		& > li {
+			display: block;
+			& a {
+				padding: 4px 0;
+				display: inline-block;
+			}
+		}
+	}
+}
+.menuWrapper {
+	&:after {
+		clear: both;
+		content: '';
+		display: table;
+	}
+	& .logo {
+		float: left;
+		& a {
+			color: #FFF;
+			display: block;
+			font-size: 20px;
+			padding: 5px 5px 5px 0;
+			text-decoration: none;
+			text-transform: uppercase;
+			& img {
+				vertical-align: sub;
+				display: inline-block;
+			}
+		}
+	}
+	& .mainMenu {
+		float: right;
+		& .list {
+			& > li {
+				&:last-child a {
+					padding-right: 0;
+				}
+				& a {
+					&:hover {
+						color: $main;
+					}
+					&.active {
+						color: #FFF;
+						background: rgba(255,255,255,0.3);
+					}
+				}
+			}
+		}
+	}
+}
+section {
+	padding: 120px 0;
+	& .section-title {
+		& h2, & p {
+			font-weight: 400;
+			color: $textBlack;
+		}
+		& > p {
+			margin-bottom: 50px;
+		}
+	}
+	&.reverse {
+		background: $dullWhite;
+	}
+}
+.notFoundPage {
+	padding: 120px 0;
+	background: #171717;
+	& h1, & h3 {
+		color: #FFF;
+		font-weight: 400;
+	}
+}
+.howitworks {
+	& .steps {
+		& .step {
+			width: 20%;
+			position: relative;
+			display: inline-block;
+			& .number {
+				width: 50px;
+				height: 50px;
+				padding: 8px 0;
+				font-size: 20px;
+				font-weight: 600;
+				border-radius: 50%;
+				margin-bottom: 6px;
+				display: inline-block;
+				border: 3px solid $main;
+				&:before, &:after {
+					top: 24px;
+					content: '';
+					height: 3px;
+					margin: auto;
+					background: $main;
+					position: absolute;
+					width: calc(50% - 24px);
+				}
+				&:before {
+					left: 0;
+				}
+				&:after {
+					right: 0;
+				}
+			}
+			&:first-child {
+				& .number:before {
+					display: none;
+				}
+			}
+			&:last-child {
+				& .number:after {
+					display: none;
+				}
+			}
+			& .caption {
+				display: block;
+				font-size: 16px;
+				font-weight: 600;
+				color: $textBlack;
+			}
+		}
+	}
+}
+.rating {
+	font-size: 0;
+	display: inline-block;
+	& .star {
+		font-size: 22px;
+		margin-right: 2px;
+		display: inline-block;
+		&:after {
+			float: left;
+			content: '\2605';
+			color: #D5D5D5;
+			line-height: 20px;
+			padding-bottom: 4px;
+		}
+		&.active:after{
+			color: #FFC107;
+		}
+	}
+}
+.car {
+	// box-shadow: 0px 10px 10px rgba(0,0,0,0.04);
+	& .carDetails {
+		padding: 20px;
+		background: #FFF;
+		border:1px solid #eee;
+		border-top: none;
+		&:after {
+			clear: both;
+			content: '';
+			display: table;
+		}
+		& h4 {
+			margin: 0;
+			color: $main;
+			margin-bottom: 8px;
+		}
+		& h3 {
+			margin: 0;
+			font-weight: 400;
+			margin-bottom: 8px;
+		}
+	}
+	& .specs {
+		padding: 0;
+		list-style: none;
+		margin-bottom: 20px;
+		& li {
+			padding: 4px 0;
+			text-align: left;
+			border-bottom: 1px solid $lightLine;
+			&:last-child {
+				border-bottom: none;
+			}
+			& span {
+				color: $mediumGrey;
+				font-size: 15px;
+				text-transform: capitalize;
+				&.spec {
+					float: right;
+				}
+			}
+		}
+	}
+	& .btn {
+		float: left;
+	}
+}
+
+
+
+footer {
+	padding: 128px 0;
+	background: $darkGrey;
+	& h4 {
+		color: #FFF;
+	}
+	& .list {
+		& li {
+			& a {
+				font-size: 14px;
+				color: $partialGrey;
+				&:hover {
+					color: rgba(255, 255, 255, 1);
+				}
+			}
+		}
+	}
+
+
+	& .copyrights {
+		margin-top: 40px;
+		padding-top: 30px;
+		text-align: center;
+		border-top: 1px solid $partialGrey;
+		& p {
+			margin: 0;
+			color: $partialGrey;
+			font-size: 13px;
+			& a {
+				color: rgb(0, 206, 206);
+			}
+		}
+	}
+	.icon-react {
+		width: 24px;
+		height: 24px;
+		display: inline-block;
+		vertical-align: middle;
+		background: url('../img/reactLogo.png') no-repeat center;
+	}
+}
+@import 'responsive';
